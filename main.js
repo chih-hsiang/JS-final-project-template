@@ -4,7 +4,7 @@ var towerImg = document.createElement("img");
 towerImg.src = "images/tower.png";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
-setTimeout(draw,1000);
+setInterval(draw,16);
 var tower = {
   x:0;
   y:0;
