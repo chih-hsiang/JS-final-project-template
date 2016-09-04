@@ -11,5 +11,5 @@ var tower = {
 }
 function draw(){
   ctx.drawImage(bgImg,0,0);
-  ctx.drawImage(towerImg,0,0);
+  ctx.drawImage(towerImg,tower.x,tower.y);
 }
