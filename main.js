@@ -6,9 +6,9 @@ var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 setInterval(draw,16);
 var tower = {
-  x:0;
-  y:0;
-}
+  x:0,
+  y:0
+};
 function draw(){
   ctx.drawImage(bgImg,0,0);
   ctx.drawImage(towerImg,tower.x,tower.y);
