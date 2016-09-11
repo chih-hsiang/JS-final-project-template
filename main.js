@@ -18,8 +18,13 @@ $("#game-canvas").on("mousemove",function(){
 });
 $("#game-canvas").on("click",function(event){
   if(tower.x >= 640-64 &&tower.y >= 480-64){
-    console.log("aaaa");
-}});
+    if(isBuilding = false){
+      isBuilding = true;
+    }else if(isbuilding = true){
+      isbuilding = false;
+    }
+  }
+});
 function draw(){
   ctx.drawImage(bgImg,0,0);
   ctx.drawImage(towerImg,tower.x,tower.y);
