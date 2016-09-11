@@ -18,10 +18,10 @@ $("#game-canvas").on("mousemove",function(){
 });
 $("#game-canvas").on("click",function(event){
   if(tower.x >= 640-64 &&tower.y >= 480-64){
-    if(isBuilding = false){
+    if(isBuilding == false){
       isBuilding = true;
     }else if(isBuilding = true){
-      isBuilding = false;
+      isBuilding == false;
     }
   }
 });
