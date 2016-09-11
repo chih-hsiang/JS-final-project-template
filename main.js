@@ -12,7 +12,8 @@ var tower = {
   y:0
 };
 $("#game-canvas").on("mousemove",function(event){
-  tower.x = event.offsetX;tower.y = event.offsetY;
+  tower.x = event.offsetX;
+  tower.y = event.offsetY;
 });
 function draw(){
   ctx.drawImage(bgImg,0,0);
