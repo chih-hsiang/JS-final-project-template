@@ -31,6 +31,7 @@ $("#game-canvas").on("click",function(event){
     cursor.x = tower.x;
     cursor.y = tower.y;
     draw();
+    isBuilding = false;
   }
 });
 function draw(){
