@@ -7,6 +7,9 @@ towerbtnImg.src = "images/tower-btn.png";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 setInterval(draw,16);
+$("#canvas").mousemove(function(event){
+  console.log("x:" + event.offsetX + ",y:" + event.offsetY);
+});
 var tower = {
   x:0,
   y:0
