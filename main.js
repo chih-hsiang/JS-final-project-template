@@ -28,8 +28,9 @@ $("#game-canvas").on("click",function(event){
       isBuilding = false;
     }
   }else if(isBuilding == true){
-    curvos.x = tower.x;
-    curvos.y = tower.y;
+    cursor.x = tower.x;
+    cursor.y = tower.y;
+    draw();
   }
 });
 function draw(){
@@ -37,6 +38,6 @@ function draw(){
   if(isBuilding == true){
     ctx.drawImage(towerImg,tower.x,tower.y);
   }
-  ctx.drawImage(towerImg,curvos.x,curvos.y);
+  ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
 }
