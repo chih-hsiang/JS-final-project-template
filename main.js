@@ -12,7 +12,7 @@ var tower = {
   y:0
 };
 $("#game-canvas").on("mousemove",function(event){
-  console.log(var tower = {"x:" + event.offsetX + ",y:" + event.offsetY};);
+  console.log(tower = {"x:" + event.offsetX + ",y:" + event.offsetY};);
 });
 function draw(){
   ctx.drawImage(bgImg,0,0);
