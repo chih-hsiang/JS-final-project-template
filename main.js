@@ -27,6 +27,8 @@ $("#game-canvas").on("click",function(event){
 });
 function draw(){
   ctx.drawImage(bgImg,0,0);
-  ctx.drawImage(towerImg,tower.x,tower.y);
+  if(isBuilding == true){
+    ctx.drawImage(towerImg,tower.x,tower.y);
+  }
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
 }
