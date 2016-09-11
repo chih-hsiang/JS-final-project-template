@@ -17,8 +17,8 @@ var cursor = {
   y:0
 };
 $("#game-canvas").on("mousemove",function(){
-  tower.x = event.offsetX;
-  tower.y = event.offsetY;
+  tower.x = event.offsetX - event.offsetX%32;
+  tower.y = event.offsetY - event.offsetY%32;
 });
 $("#game-canvas").on("click",function(event){
   if(tower.x >= 640-64 &&tower.y >= 480-64){
