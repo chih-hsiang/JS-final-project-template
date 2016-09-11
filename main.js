@@ -12,6 +12,10 @@ var tower = {
   x:0,
   y:0
 };
+var cursor = {
+  x:0,
+  y:0
+};
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX;
   tower.y = event.offsetY;
@@ -23,6 +27,9 @@ $("#game-canvas").on("click",function(event){
     }else if(isBuilding == true){
       isBuilding = false;
     }
+  }else if(isBuilding == true){
+    curvos.x = tower.x;
+    curvos.y = tower.y;
   }
 });
 function draw(){
@@ -30,5 +37,6 @@ function draw(){
   if(isBuilding == true){
     ctx.drawImage(towerImg,tower.x,tower.y);
   }
+  ctx.drawImage(towerImg,curvos.x,curvos.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
 }
