@@ -20,8 +20,8 @@ $("#game-canvas").on("click",function(event){
   if(tower.x >= 640-64 &&tower.y >= 480-64){
     if(isBuilding = false){
       isBuilding = true;
-    }else if(isbuilding = true){
-      isbuilding = false;
+    }else if(isBuilding = true){
+      isBuilding = false;
     }
   }
 });
