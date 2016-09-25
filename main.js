@@ -12,7 +12,7 @@ var FPS = 60;
 setInterval(draw,1000/FPS);
 var isBuilding = false;
 var enemy = {
-  x:96,
+  x:0,
   y:480-32,
   speedx:0,
   speedy:-64,
