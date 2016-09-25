@@ -15,7 +15,11 @@ var enemy = {
   x:96,
   y:480-32,
   speedX:0,
-  speedy:-64
+  speedy:-64,
+  move:function(){
+    this.x = this.x+this.speedx/FPS;
+    this.y = this.y+this.speedy/FPS;
+  }
 };
 var tower = {
   x:0,
@@ -49,5 +53,6 @@ function draw(){
   }
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
+  enemy.move();
   ctx.drawImage(slimeImg,enemy.x,enemy.y);
 }
