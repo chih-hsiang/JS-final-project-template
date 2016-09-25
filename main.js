@@ -56,3 +56,6 @@ function draw(){
   enemy.move();
   ctx.drawImage(slimeImg,enemy.x,enemy.y);
 }
+function collided(){
+  
+};
