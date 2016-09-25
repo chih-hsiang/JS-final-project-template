@@ -4,9 +4,9 @@ var towerImg = document.createElement("img");
 towerImg.src = "images/tower.png";
 var towerbtnImg = document.createElement("img");
 towerbtnImg.src = "images/tower-btn.png";
-var canvas = document.getElementById("game-canvas");
 var slimeImg = document.createElement("img");
-towerImg.src = "images/";
+slimeImg.src = "images/slime.gif";
+var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 setInterval(draw,16);
 var isBuilding = false;
@@ -46,4 +46,5 @@ function draw(){
   }
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
+  ctx.drawImage(slimeImg,enemy.x,enemy.y);
 }
