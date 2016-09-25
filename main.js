@@ -12,8 +12,9 @@ setInterval(draw,16);
 var isBuilding = false;
 var enemy = {
   x:96,
-  y:480-32
-}
+  y:480-32,
+  speed:64
+};
 var tower = {
   x:0,
   y:0
