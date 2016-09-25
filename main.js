@@ -14,7 +14,7 @@ var isBuilding = false;
 var enemy = {
   x:96,
   y:480-32,
-  speedX:0,
+  speedx:0,
   speedy:-64,
   move:function(){
     this.x = this.x+this.speedx/FPS;
