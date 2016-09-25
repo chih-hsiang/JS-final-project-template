@@ -8,7 +8,8 @@ var slimeImg = document.createElement("img");
 slimeImg.src = "images/slime.gif";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
-setInterval(draw,16);
+var FPS = 60;
+setInterval(draw,1000/FPS);
 var isBuilding = false;
 var enemy = {
   x:96,
