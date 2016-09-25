@@ -13,7 +13,8 @@ var isBuilding = false;
 var enemy = {
   x:96,
   y:480-32,
-  speed:64
+  speedX:0,
+  speedy:-64
 };
 var tower = {
   x:0,
