@@ -5,9 +5,15 @@ towerImg.src = "images/tower.png";
 var towerbtnImg = document.createElement("img");
 towerbtnImg.src = "images/tower-btn.png";
 var canvas = document.getElementById("game-canvas");
+var slimeImg = document.createElement("img");
+towerImg.src = "images/";
 var ctx = canvas.getContext("2d");
 setInterval(draw,16);
 var isBuilding = false;
+var enemy = {
+  x:96,
+  y:480-32
+}
 var tower = {
   x:0,
   y:0
