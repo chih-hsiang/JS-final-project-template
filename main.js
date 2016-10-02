@@ -27,8 +27,23 @@ var enemy = {
   speedx:0,
   speedy:-64,
   move:function(){
-    this.x = this.x+this.speedx/FPS;
-    this.y = this.y+this.speedy/FPS;
+    if(isCollided(path[this.pathdes].x,path[this.pathdes].y,this.x,this.y,this.speedx/FPS,this.speedy/FPS)){
+      this.x = path[this.pathdes].x;
+      this.y = path[this.pathdes].y;
+      this.pathDes = this.pathDes + 1;
+      if(this.x < path[this.pathdes].x){
+        this.speedx = 64;
+      }else if(this.x > path[this.pathdes].x){
+        this.speedx = -64;
+      }else if(this.y < path[this.pathdes].y;){
+        this.speedy = 64;
+      }else if(this.y > path[this.pathdes].y){
+        this.speedy = -64;
+      }
+    }else{
+      this.x = this.x+this.speedx/FPS;
+      this.y = this.y+this.speedy/FPS;
+    }
   }
 };
 var tower = {
@@ -66,8 +81,8 @@ function draw(){
   ctx.drawImage(slimeImg,enemy.x,enemy.y);
   enemy.move();
 }
-function isCollided(pathx,pathy,x,y,speed){
-  if(pathx >= x && pathx <= x+speed && pathy >= y && pathy <= y+speed){
+function isCollided(pathx,pathy,x,y,speedx,speedy){
+  if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
     return true;
   }else{
     return false;
