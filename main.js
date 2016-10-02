@@ -35,7 +35,7 @@ var enemy = {
         this.speedx = 64;
       }else if(this.x > path[this.pathdes].x){
         this.speedx = -64;
-      }else if(this.y < path[this.pathdes].y;){
+      }else if(this.y < path[this.pathdes].y){
         this.speedy = 64;
       }else if(this.y > path[this.pathdes].y){
         this.speedy = -64;
