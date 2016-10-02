@@ -23,7 +23,7 @@ var path = [
 var enemy = {
   x:0,
   y:480-32,
-  pathDes:0;
+  pathDes:0,
   speedx:0,
   speedy:-64,
   move:function(){
