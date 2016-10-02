@@ -11,9 +11,19 @@ var ctx = canvas.getContext("2d");
 var FPS = 60;
 setInterval(draw,1000/FPS);
 var isBuilding = false;
+var path = [
+  {x: 0, y: 0},
+  {x: 352, y: 0},
+  {x: 352, y: 32},
+  {x: 448, y: 32},
+  {x: 448, y: 160},
+  {x: 512, y: 160},
+  {x: 512, y: 0}
+];
 var enemy = {
   x:0,
   y:480-32,
+  pathDes:0;
   speedx:0,
   speedy:-64,
   move:function(){
@@ -53,9 +63,12 @@ function draw(){
   }
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
-  enemy.move();
   ctx.drawImage(slimeImg,enemy.x,enemy.y);
+  enemy.move();
 }
-function collided(){
-  
-};
+function isCollided(pathx,pathy,x,y,speed){
+  if(pathx <= x && pathx >= x+speed && pathy >= y && pathy <= y+speed){
+    return true;
+  }else{
+    return false;
+  }
