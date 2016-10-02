@@ -67,7 +67,7 @@ function draw(){
   enemy.move();
 }
 function isCollided(pathx,pathy,x,y,speed){
-  if(pathx <= x && pathx >= x+speed && pathy >= y && pathy <= y+speed){
+  if(pathx >= x && pathx <= x+speed && pathy >= y && pathy <= y+speed){
     return true;
   }else{
     return false;
