@@ -88,8 +88,8 @@ function draw(){
   }
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
-  ctx.drawImage(slimeImg,enemy.x,enemy.y);
   enemy.move();
+  ctx.drawImage(slimeImg,enemy.x,enemy.y);
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
