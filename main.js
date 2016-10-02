@@ -48,6 +48,8 @@ var enemy = {
         this.speedy = -64;
         this.speedx = 0;
       }
+      this.x = this.x+this.speedx/FPS;
+      this.y = this.y+this.speedy/FPS;
     }else{
       this.x = this.x+this.speedx/FPS;
       this.y = this.y+this.speedy/FPS;
