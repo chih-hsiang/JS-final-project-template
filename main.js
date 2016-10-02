@@ -32,15 +32,19 @@ var enemy = {
       this.y = path[this.pathDes].y;
       this.pathDes = this.pathDes + 1;
       if(this.x < path[this.pathDes].x){
+        console.log("a");
         this.speedx = 64;
         this.speedy = 0;
       }else if(this.x > path[this.pathDes].x){
+        console.log("b");
         this.speedx = -64;
         this.speedy = 0;
       }else if(this.y < path[this.pathDes].y){
+        console.log("c");
         this.speedy = 64;
         this.speedx = 0;
       }else if(this.y > path[this.pathDes].y){
+        console.log("d");
         this.speedy = -64;
         this.speedx = 0;
       }
