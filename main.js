@@ -72,3 +72,4 @@ function isCollided(pathx,pathy,x,y,speed){
   }else{
     return false;
   }
+}
