@@ -85,7 +85,7 @@ function draw(){
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
-    enemies[i].move
+    enemies[i].move();
     ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
   }
   clock++;
