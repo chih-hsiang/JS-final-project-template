@@ -50,7 +50,8 @@ function Enemy(){
     }
   };
 }
-var enemy = new Enemy();
+var enemies = [];
+var clock = 0;
 var tower = {
   x:0,
   y:0
@@ -83,8 +84,15 @@ function draw(){
   }
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
-  enemy.move();
-  ctx.drawImage(slimeImg,enemy.x,enemy.y);
+  for(var i = 0;i < enemies.length;i++){
+    enemies[i].move();
+    ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
+  }
+  clock++;
+  if(clock % 80 = 0){
+    var newEnemy = new Enemy();
+    enemies.push(newEnemy);
+  }
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
