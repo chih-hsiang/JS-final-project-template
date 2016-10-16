@@ -20,13 +20,13 @@ var path = [
   {x:512, y:160},
   {x:512, y:0}
 ];
-var enemy = {
-  x:0,
-  y:480-32,
-  pathDes:0,
-  speedx:0,
-  speedy:-64,
-  move:function(){
+function Enemy(){
+  this.x = 0,
+  this.y = 480-32,
+  this.pathDes = 0,
+  this.speedx = 0,
+  this.speedy = -64,
+  this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
       console.log("aaaaa");
       this.x = path[this.pathDes].x;
@@ -50,7 +50,8 @@ var enemy = {
       this.y = this.y+this.speedy/FPS;
     }
   }
-};
+}
+var enemy = new Enemy();
 var tower = {
   x:0,
   y:0
