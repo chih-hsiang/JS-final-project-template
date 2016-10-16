@@ -21,11 +21,11 @@ var path = [
   {x:512, y:0}
 ];
 function Enemy(){
-  this.x = 0,
-  this.y = 480-32,
-  this.pathDes = 0,
-  this.speedx = 0,
-  this.speedy = -64,
+  this.x = 0;
+  this.y = 480-32;
+  this.pathDes = 0;
+  this.speedx = 0;
+  this.speedy = -64;
   this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
       this.x = path[this.pathDes].x;
