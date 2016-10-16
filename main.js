@@ -89,7 +89,7 @@ function draw(){
     ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
   }
   clock++;
-  if(clock % 80 = 0){
+  if(clock % 80 == 0){
     var newEnemy = new Enemy();
     enemies.push(newEnemy);
   }
