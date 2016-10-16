@@ -48,7 +48,7 @@ function Enemy(){
       this.x = this.x+this.speedx/FPS;
       this.y = this.y+this.speedy/FPS;
     }
-  }
+  };
 }
 var enemy = new Enemy();
 var tower = {
