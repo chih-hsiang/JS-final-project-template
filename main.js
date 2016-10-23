@@ -94,6 +94,7 @@ function Enemy(){
     }
   };
 }
+var hp = 100;
 var enemies = [];
 var clock = 0;
 var tower = {
@@ -137,6 +138,9 @@ function draw(){
     var newEnemy = new Enemy();
     enemies.push(newEnemy);
   }
+  ctx.font = "24px Arial";
+  ctx.fillStyle = "white";
+  ctx.fillTest("HP:" + hp)
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
