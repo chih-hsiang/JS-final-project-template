@@ -104,7 +104,8 @@ var tower = {
 };
 var cursor = {
   x:0,
-  y:0
+  y:0,
+  range:96
 };
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX - event.offsetX%32;
