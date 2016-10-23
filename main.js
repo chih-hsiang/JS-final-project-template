@@ -116,7 +116,7 @@ var cursor = {
       this.aimingEnemyId = i;
       return;
     }
-    this.aimingEnemyId:null;
+    this.aimingEnemyId = null;
     }
   }
 };
