@@ -159,9 +159,9 @@ function draw(){
     enemies.push(newEnemy);
   }
   cursor.searchEnemy();
-  if(cursor.aimingEnemyId != 0){
+  if(cursor.aimingEnemyId != null){
     var id = cursor.aimingEnemyId;
-    ctx.drawImage(crosshairImg,enemies[cursor.aimingEnemyId].x,enemies[cursor.aimingEnemyId].y);
+    ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
