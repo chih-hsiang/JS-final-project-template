@@ -70,6 +70,7 @@ function Enemy(){
   this.pathDes = 0;
   this.speedx = 0;
   this.speedy = -64;
+  this.hp = 10;
   this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
       this.x = path[this.pathDes].x;
@@ -130,8 +131,12 @@ function draw(){
   ctx.drawImage(towerImg,cursor.x,cursor.y);
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
-    enemies[i].move();
-    ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
+    if(enemies[i].hp <= 0){
+      enemies.splice(i,1);
+    }else{
+      enemies[i].move();
+      ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
+    }
   }
   clock++;
   if(clock % 80 == 0){
