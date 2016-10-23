@@ -161,7 +161,7 @@ function draw(){
   cursor.searchEnemy();
   if(cursor.aimingEnemyId != 0){
     var id = cursor.aimingEnemyId;
-    ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
+    ctx.drawImage(crosshairImg,enemies[cursor.aimingEnemyId].x,enemies[cursor.aimingEnemyId].y);
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
