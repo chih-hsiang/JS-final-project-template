@@ -105,7 +105,17 @@ var tower = {
 var cursor = {
   x:0,
   y:0,
-  range:96
+  range:96,
+  aimingEnemyId:null,
+  searchEnemy:function(){
+    for(var i = 0;i < enemies.length;i++){
+      var distance = Math.sqrt(Math.pow(this.x-enemies[i].x,2)+Math.pow(this.y-enemies[i].y,2));
+    }
+    if(distance <= this.range){
+      this.aimingEnemyId = i;
+      return;
+    }
+  }
 };
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX - event.offsetX%32;
