@@ -115,9 +115,9 @@ var cursor = {
       if(distance <= this.range){
       this.aimingEnemyId = i;
       return;
+      }
     }
     this.aimingEnemyId = null;
-    }
   }
 };
 $("#game-canvas").on("mousemove",function(){
