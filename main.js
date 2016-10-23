@@ -6,6 +6,8 @@ var towerbtnImg = document.createElement("img");
 towerbtnImg.src = "images/tower-btn.png";
 var slimeImg = document.createElement("img");
 slimeImg.src = "images/slime.gif";
+var crosshairImg = document.createElement("img");
+crosshairImg.src = "images/slime.gif";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var FPS = 60;
@@ -110,10 +112,11 @@ var cursor = {
   searchEnemy:function(){
     for(var i = 0;i < enemies.length;i++){
       var distance = Math.sqrt(Math.pow(this.x-enemies[i].x,2)+Math.pow(this.y-enemies[i].y,2));
-    }
-    if(distance <= this.range){
+      if(distance <= this.range){
       this.aimingEnemyId = i;
       return;
+    }
+    this.aimingEnemyId:null;
     }
   }
 };
@@ -154,6 +157,11 @@ function draw(){
   if(clock % 80 == 0){
     var newEnemy = new Enemy();
     enemies.push(newEnemy);
+  }
+  cursor.searchEnemy();
+  if(cursor.aimingEnemyId != 0){
+    var id = cursor.aimingEnemyId;
+    ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
