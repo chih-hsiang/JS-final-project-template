@@ -112,6 +112,7 @@ $("#game-canvas").on("mousemove",function(){
   tower.y = event.offsetY - event.offsetY%32;
 });
 $("#game-canvas").on("click",function(event){
+  enemies[0].hp = 0;
   if(tower.x >= 640-64 &&tower.y >= 480-64){
     if(isBuilding == false){
       isBuilding = true;
