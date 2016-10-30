@@ -109,15 +109,32 @@ var cursor = {
   y:0,
   range:96,
   aimingEnemyId:null,
+  waittime:1,
+  shoottime:1,
+  damage:5,
   searchEnemy:function(){
+    this.shoottime -= 1/FPS;
     for(var i = 0;i < enemies.length;i++){
       var distance = Math.sqrt(Math.pow(this.x-enemies[i].x,2)+Math.pow(this.y-enemies[i].y,2));
       if(distance <= this.range){
-      this.aimingEnemyId = i;
-      return;
+        this.aimingEnemyId = i;
+        if(this.shoottime >= 0){
+          this.shoot(i);
+          this.shoottime = this.waittime;
+        }
+        return;
       }
     }
     this.aimingEnemyId = null;
+  },
+  shoot:function(id){
+    ctx.beginPath();
+    ctx.moveTo(this.x,this.y);
+    ctx.lineTo(enemies[id].x,enemies[id].y);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    enemies[id].hp -=this.damage;
   }
 };
 $("#game-canvas").on("mousemove",function(){
