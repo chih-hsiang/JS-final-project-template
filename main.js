@@ -129,8 +129,8 @@ var cursor = {
   },
   shoot:function(id){
     ctx.beginPath();
-    ctx.moveTo(this.x,this.y);
-    ctx.lineTo(enemies[id].x,enemies[id].y);
+    ctx.moveTo(this.x + 32,this.y + 32);
+    ctx.lineTo(enemies[id].x + 32,enemies[id].y + 32);
     ctx.strokeStyle = "red";
     ctx.lineWidth = 3;
     ctx.stroke();
