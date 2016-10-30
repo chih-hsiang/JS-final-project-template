@@ -152,11 +152,14 @@ $("#game-canvas").on("click",function(event){
       isBuilding = false;
     }
   }else if(isBuilding == true){
-    var newTower = new cursor();
-    newTower.x = tower.x;
-    newTower.y = tower.y;
-    towers.push(newTower);
-    draw();
+    if(money >= 50){
+      var newTower = new cursor();
+      newTower.x = tower.x;
+      newTower.y = tower.y;
+      towers.push(newTower);
+      money = money - 50;
+      draw();
+    }
   }
 });
 function draw(){
