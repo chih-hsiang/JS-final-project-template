@@ -99,7 +99,7 @@ function Enemy(){
 }
 var hp = 100;
 var score = 0;
-var money = 0;
+var money = 100;
 var enemies = [];
 var towers = [];
 var clock = 0;
