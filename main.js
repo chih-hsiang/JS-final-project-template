@@ -184,9 +184,9 @@ function draw(){
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
-  ctx.fillText("HP:" + hp,160,24);
-  ctx.fillText("score:" + score,160,48);
-  ctx.fillText("money:" + money,160,72);
+  ctx.fillText("HP:" + hp,224,24);
+  ctx.fillText("score:" + score,224,48);
+  ctx.fillText("money:" + money,224,72);
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
