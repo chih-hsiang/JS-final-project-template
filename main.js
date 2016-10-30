@@ -10,7 +10,7 @@ var crosshairImg = document.createElement("img");
 crosshairImg.src = "images/crosshair.png";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
-var FPS = 60;
+var FPS = 30;
 setInterval(draw,1000/FPS);
 var isBuilding = false;
 var path = [
@@ -167,7 +167,7 @@ function draw(){
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
       enemies.splice(i,1);
-      money = money + 1;
+      money = money + 25;
     }else{
       enemies[i].move();
       ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
