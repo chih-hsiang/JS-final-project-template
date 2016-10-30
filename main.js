@@ -131,8 +131,8 @@ var cursor = {
   },
   shoot:function(id){
     ctx.beginPath();
-    ctx.moveTo(this.x + 32,this.y + 32);
-    ctx.lineTo(enemies[id].x + 32,enemies[id].y + 32);
+    ctx.moveTo(this.x + 16,this.y + 16);
+    ctx.lineTo(enemies[id].x + 16,enemies[id].y + 16);
     ctx.strokeStyle = "red";
     ctx.lineWidth = 3;
     ctx.stroke();
