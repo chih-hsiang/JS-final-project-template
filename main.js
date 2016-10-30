@@ -98,6 +98,8 @@ function Enemy(){
   };
 }
 var hp = 100;
+var score = 0;
+var money = 0;
 var enemies = [];
 var clock = 0;
 var tower = {
@@ -182,7 +184,9 @@ function draw(){
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
-  ctx.fillText("HP:" + hp,128,25);
+  ctx.fillText("HP:" + hp,160,25);
+  ctx.fillText("score:" + score,160,50);
+  ctx.fillText("money:" + money,160,75);
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
