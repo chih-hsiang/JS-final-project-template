@@ -167,6 +167,7 @@ function draw(){
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
       enemies.splice(i,1);
+      money = money + 1;
     }else{
       enemies[i].move();
       ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
@@ -187,6 +188,7 @@ function draw(){
   ctx.fillText("HP:" + hp,224,24);
   ctx.fillText("score:" + score,224,48);
   ctx.fillText("money:" + money,224,72);
+  score = score + 1;
 }
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
