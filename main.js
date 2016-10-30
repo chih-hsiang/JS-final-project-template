@@ -118,7 +118,7 @@ var cursor = {
       var distance = Math.sqrt(Math.pow(this.x-enemies[i].x,2)+Math.pow(this.y-enemies[i].y,2));
       if(distance <= this.range){
         this.aimingEnemyId = i;
-        if(this.shoottime >= 0){
+        if(this.shoottime <= 0){
           this.shoot(i);
           this.shoottime = this.waittime;
         }
