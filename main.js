@@ -101,20 +101,21 @@ var hp = 100;
 var score = 0;
 var money = 0;
 var enemies = [];
+var towers = [];
 var clock = 0;
 var tower = {
   x:0,
   y:0
 };
-var cursor = {
-  x:0,
-  y:0,
-  range:96,
-  aimingEnemyId:null,
-  waittime:1,
-  shoottime:1,
-  damage:5,
-  searchEnemy:function(){
+function cursor(){
+  this.x = 0;
+  this.y = 0;
+  this.range = 96;
+  this.aimingEnemyId = null;
+  this.waittime = 1;
+  this.shoottime = 1;
+  this.damage = 5;
+  this.searchEnemy = function(){
     this.shoottime -= 1/FPS;
     for(var i = 0;i < enemies.length;i++){
       var distance = Math.sqrt(Math.pow(this.x-enemies[i].x,2)+Math.pow(this.y-enemies[i].y,2));
@@ -128,8 +129,8 @@ var cursor = {
       }
     }
     this.aimingEnemyId = null;
-  },
-  shoot:function(id){
+  };
+  this.shoot = function(id){
     ctx.beginPath();
     ctx.moveTo(this.x + 16,this.y + 16);
     ctx.lineTo(enemies[id].x + 16,enemies[id].y + 16);
@@ -137,8 +138,8 @@ var cursor = {
     ctx.lineWidth = 3;
     ctx.stroke();
     enemies[id].hp -= this.damage;
-  }
-};
+  };
+}
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX - event.offsetX%32;
   tower.y = event.offsetY - event.offsetY%32;
@@ -154,6 +155,8 @@ $("#game-canvas").on("click",function(event){
   }else if(isBuilding == true){
     cursor.x = tower.x;
     cursor.y = tower.y;
+    var newTower = new cursor();
+    towers.push(newTower);
     draw();
   }
 });
@@ -162,7 +165,10 @@ function draw(){
   if(isBuilding == true){
     ctx.drawImage(towerImg,tower.x,tower.y);
   }
-  ctx.drawImage(towerImg,cursor.x,cursor.y);
+  for(var i = 0;i < towers.length;i++){
+      Towers[i].searchEnemy();
+      ctx.drawImage(towerImg,cursor.x,cursor.y);
+  }
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
