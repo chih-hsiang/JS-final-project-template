@@ -166,9 +166,9 @@ function draw(){
     ctx.drawImage(towerImg,tower.x,tower.y);
   }
   for(var i = 0;i < towers.length;i++){
-    Towers[i].searchEnemy();
-    if(Towers[i].aimingEnemyId != null){
-    var id = Towers[i].aimingEnemyId;
+    towers[i].searchEnemy();
+    if(towers[i].aimingEnemyId != null){
+    var id = towers[i].aimingEnemyId;
     ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
   }
     ctx.drawImage(towerImg,cursor.x,cursor.y);
