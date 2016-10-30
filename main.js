@@ -134,7 +134,7 @@ var cursor = {
     ctx.strokeStyle = "red";
     ctx.lineWidth = 3;
     ctx.stroke();
-    enemies[id].hp -=this.damage;
+    enemies[id].hp -= this.damage;
   }
 };
 $("#game-canvas").on("mousemove",function(){
