@@ -166,8 +166,12 @@ function draw(){
     ctx.drawImage(towerImg,tower.x,tower.y);
   }
   for(var i = 0;i < towers.length;i++){
-      Towers[i].searchEnemy();
-      ctx.drawImage(towerImg,cursor.x,cursor.y);
+    Towers[i].searchEnemy();
+    if(Towers[i].aimingEnemyId != null){
+    var id = Towers[i].aimingEnemyId;
+    ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
+  }
+    ctx.drawImage(towerImg,cursor.x,cursor.y);
   }
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
@@ -183,11 +187,6 @@ function draw(){
   if(clock % 80 == 0){
     var newEnemy = new Enemy();
     enemies.push(newEnemy);
-  }
-  cursor.searchEnemy();
-  if(cursor.aimingEnemyId != null){
-    var id = cursor.aimingEnemyId;
-    ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
