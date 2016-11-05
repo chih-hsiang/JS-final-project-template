@@ -10,7 +10,7 @@ var crosshairImg = document.createElement("img");
 crosshairImg.src = "images/crosshair.png";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
-var FPS = 30;
+var FPS = 60;
 setInterval(draw,1000/FPS);
 var isBuilding = false;
 var path = [
@@ -114,7 +114,7 @@ function cursor(){
   this.aimingEnemyId = null;
   this.waittime = 1;
   this.shoottime = 1;
-  this.damage = 5;
+  this.damage = 2.5;
   this.searchEnemy = function(){
     this.shoottime -= 1/FPS;
     for(var i = 0;i < enemies.length;i++){
