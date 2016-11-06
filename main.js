@@ -192,8 +192,8 @@ function draw(){
     enemies.push(newEnemy);
   }
   if(clock % 400 == 0){
-    enemy.hp = enemy.hp +5;
-    enemy.speed = enemy.speed +16;
+    Enemy.hp = Enemy.hp +5;
+    Enemy.speed = Enemy.speed +16;
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
