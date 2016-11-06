@@ -72,6 +72,7 @@ function Enemy(){
   this.pathDes = 0;
   this.speedx = 0;
   this.speedy = -64;
+  this.speed = 32;
   this.hp = 10;
   this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
@@ -79,17 +80,17 @@ function Enemy(){
       this.y = path[this.pathDes].y;
       this.pathDes = this.pathDes + 1;
       if(this.x < path[this.pathDes].x){
-        this.speedx = 64;
-        this.speedy = 0;
+        this.speedx = 2*this.speed;
+        this.speedy = 0*this.speed;
       }else if(this.x > path[this.pathDes].x){
-        this.speedx = -64;
-        this.speedy = 0;
+        this.speedx = -2*this.speed;
+        this.speedy = 0*this.speed;
       }else if(this.y < path[this.pathDes].y){
-        this.speedy = 64;
+        this.speedy = 2*this.speed;
         this.speedx = 0;
       }else if(this.y > path[this.pathDes].y){
-        this.speedy = -64;
-        this.speedx = 0;
+        this.speedy = -2*this.speed;
+        this.speedx = 0*this.speed;
       }
     }else{
       this.x = this.x+this.speedx/FPS;
@@ -172,7 +173,7 @@ function draw(){
     if(towers[i].aimingEnemyId != null){
       var id = towers[i].aimingEnemyId;
       ctx.drawImage(crosshairImg,enemies[id].x,enemies[id].y);
-  }
+    }
     ctx.drawImage(towerImg,towers[i].x,towers[i].y);
   }
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
@@ -189,6 +190,10 @@ function draw(){
   if(clock % 80 == 0){
     var newEnemy = new Enemy();
     enemies.push(newEnemy);
+  }
+  if(clock % 400 == 0){
+    enemy.hp = enemy.hp +5;
+    enemy.speed = enemy.speed +16;
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
