@@ -85,6 +85,7 @@ function Enemy(){
       if(this.pathDes == path.length){
         this.hp = 0;
         hp -= 10;
+        return;
       }
       if(this.x < path[this.pathDes].x){
         this.speedx = 2*this.speed;
