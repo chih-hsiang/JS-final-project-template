@@ -184,7 +184,7 @@ function draw(){
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
-      if(this.pathDes != path.length){
+      if(enemies[i].pathDes != path.length){
         money = money + 25;
       }
       enemies.splice(i,1);
