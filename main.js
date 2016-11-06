@@ -184,10 +184,10 @@ function draw(){
   ctx.drawImage(towerbtnImg,640-64,480-64,64,64);
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
-      enemies.splice(i,1);
       if(this.pathDes != path.length){
-         money = money + 25;
-       } 
+        money = money + 25;
+      }
+      enemies.splice(i,1);
     }else{
       enemies[i].move();
       ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
