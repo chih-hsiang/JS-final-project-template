@@ -13,6 +13,9 @@ var ctx = canvas.getContext("2d");
 var FPS = 60;
 setInterval(draw,1000/FPS);
 var isBuilding = false;
+var hp = 100;
+var score = 0;
+var money = 100;
 var path = [
   {x:0, y:0},
   {x:96, y:0},
@@ -79,6 +82,10 @@ function Enemy(){
       this.x = path[this.pathDes].x;
       this.y = path[this.pathDes].y;
       this.pathDes = this.pathDes + 1;
+      if(this.pathDes == path.length){
+        this.hp = 0;
+        hp -= 10;
+      }
       if(this.x < path[this.pathDes].x){
         this.speedx = 2*this.speed;
         this.speedy = 0*this.speed;
@@ -98,9 +105,6 @@ function Enemy(){
     }
   };
 }
-var hp = 100;
-var score = 0;
-var money = 100;
 var enemies = [];
 var towers = [];
 var clock = 0;
@@ -181,7 +185,9 @@ function draw(){
   for(var i = 0;i < enemies.length;i++){
     if(enemies[i].hp <= 0){
       enemies.splice(i,1);
-      money = money + 25;
+      if(this.pathDes != path.length){
+         money = money + 25;
+       } 
     }else{
       enemies[i].move();
       ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
