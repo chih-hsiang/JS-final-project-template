@@ -189,11 +189,11 @@ function draw(){
   clock++;
   if(clock % 80 == 0){
     var newEnemy = new Enemy();
+    if(clock >= 400){
+      newEnemy.hp = newEnemy.hp + (clock - clock%400)/80;
+      newEnemy.speed = newEnemy.speed + (clock - clock%400)/25;
+    }
     enemies.push(newEnemy);
-  }
-  if(clock % 400 == 0){
-    Enemy.hp = Enemy.hp +5;
-    Enemy.speed = Enemy.speed +16;
   }
   ctx.font = "24px Arial";
   ctx.fillStyle = "white";
