@@ -11,11 +11,10 @@ crosshairImg.src = "images/crosshair.png";
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var FPS = 60;
-setInterval(draw,1000/FPS);
 var isBuilding = false;
 var hp = 100;
 var score = 0;
-var money = 100;
+var money = 250;
 var path = [
   {x:0, y:0},
   {x:96, y:0},
@@ -106,6 +105,7 @@ function Enemy(){
     }
   };
 }
+var levelOn = null;
 var enemies = [];
 var towers = [];
 var clock = 0;
@@ -114,7 +114,7 @@ var tower = {
   y:0
 };
 function cursor(){
-  
+  this.level = 1;
   this.x = 0;
   this.y = 0;
   this.range = 96;
@@ -150,6 +150,9 @@ function cursor(){
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX - event.offsetX%32;
   tower.y = event.offsetY - event.offsetY%32;
+  if(){
+    
+  }
 });
 $("#game-canvas").on("click",function(event){
   if(tower.x >= 640-64 &&tower.y >= 480-64){
@@ -160,16 +163,16 @@ $("#game-canvas").on("click",function(event){
     }
   }else if(isBuilding == true){
     if(money >= 50){
+      isBuilding = false;
       var newTower = new cursor();
       newTower.x = tower.x;
       newTower.y = tower.y;
       towers.push(newTower);
       money = money - 50;
-      draw();
     }
   }
 });
-function draw(){
+var intervalID = setInterval(draw(){
   ctx.drawImage(bgImg,0,0);
   if(isBuilding == true){
     ctx.drawImage(towerImg,tower.x,tower.y);
@@ -192,6 +195,15 @@ function draw(){
     }else{
       enemies[i].move();
       ctx.drawImage(slimeImg,enemies[i].x,enemies[i].y);
+      if(hp <= 0){
+        ctx.font = "72px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("GAME OVER",192,128);
+        ctx.font = "24px Arial";
+        ctx.fillText("you got",224,224);
+        ctx.fillText(score,224,256);
+        clearInterval(intervalID);
+      }
     }
   }
   clock++;
@@ -211,7 +223,7 @@ function draw(){
   ctx.fillText("score:" + score,224,48);
   ctx.fillText("money:" + money,224,72);
   score = score + 1;
-}
+},1000/FPS);
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
     return true;
