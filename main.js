@@ -109,6 +109,7 @@ var tower = {
   y:0
 };
 function cursor(){
+  
   this.x = 0;
   this.y = 0;
   this.range = 96;
@@ -190,7 +191,7 @@ function draw(){
   if(clock % 80 == 0){
     var newEnemy = new Enemy();
     if(clock >= 400){
-      newEnemy.hp = newEnemy.hp + (clock - clock%400)/80;
+      newEnemy.hp = newEnemy.hp + (clock - clock%400)/160;
       newEnemy.speed = newEnemy.speed + (clock - clock%400)/100;
       newEnemy.speedx = 0*newEnemy.speed;
       newEnemy.speedy = -2*newEnemy.speed;
