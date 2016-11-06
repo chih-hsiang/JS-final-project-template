@@ -196,10 +196,10 @@ function draw(){
       if(hp <= 0){
         ctx.font = "72px Arial";
         ctx.fillStyle = "white";
-        ctx.fillText("GAME OVER",192,128);
+        ctx.fillText("GAME OVER",192,224);
         ctx.font = "24px Arial";
-        ctx.fillText("you got",224,224);
-        ctx.fillText(score,224,256);
+        ctx.fillText("you got",256,224);
+        ctx.fillText(score,256,256);
         clearInterval(intervalID);
       }
     }
