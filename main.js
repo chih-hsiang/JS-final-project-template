@@ -71,8 +71,8 @@ function Enemy(){
   this.y = 480-32;
   this.pathDes = 0;
   this.speed = 32;
-  this.speedx = 0*this.speed;
-  this.speedy = -2*this.speed;
+  this.speedx = 0;
+  this.speedy = -64;
   this.hp = 10;
   this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
@@ -191,7 +191,9 @@ function draw(){
     var newEnemy = new Enemy();
     if(clock >= 400){
       newEnemy.hp = newEnemy.hp + (clock - clock%400)/80;
-      newEnemy.speed = newEnemy.speed + (clock - clock%400)/25;
+      newEnemy.speed = newEnemy.speed + (clock - clock%400)/100;
+      newEnemy.speedx = 0*newEnemy.speed;
+      newEnemy.speedy = -2*newEnemy.speed;
     }
     enemies.push(newEnemy);
   }
