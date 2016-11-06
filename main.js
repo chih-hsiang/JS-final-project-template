@@ -70,9 +70,9 @@ function Enemy(){
   this.x = 0;
   this.y = 480-32;
   this.pathDes = 0;
-  this.speedx = 0;
-  this.speedy = -64;
   this.speed = 32;
+  this.speedx = 0*this.speed;
+  this.speedy = -2*this.speed;
   this.hp = 10;
   this.move = function(){
     if(isCollided(path[this.pathDes].x,path[this.pathDes].y,this.x,this.y,Math.abs(this.speedx/FPS),Math.abs(this.speedy/FPS))){
