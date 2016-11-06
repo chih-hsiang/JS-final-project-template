@@ -172,7 +172,8 @@ $("#game-canvas").on("click",function(event){
     }
   }
 });
-var intervalID = setInterval(draw(){
+var intervalID = setInterval(draw,1000/FPS);
+function draw(){
   ctx.drawImage(bgImg,0,0);
   if(isBuilding == true){
     ctx.drawImage(towerImg,tower.x,tower.y);
@@ -223,7 +224,7 @@ var intervalID = setInterval(draw(){
   ctx.fillText("score:" + score,224,48);
   ctx.fillText("money:" + money,224,72);
   score = score + 1;
-},1000/FPS);
+}
 function isCollided(pathx,pathy,x,y,speedx,speedy){
   if(pathx >= x && pathx <= x+speedx && pathy >= y && pathy <= y+speedy){
     return true;
