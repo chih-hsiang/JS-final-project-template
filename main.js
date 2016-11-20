@@ -150,7 +150,7 @@ function cursor(){
 $("#game-canvas").on("mousemove",function(){
   tower.x = event.offsetX - event.offsetX%32;
   tower.y = event.offsetY - event.offsetY%32;
-  if(isBuiding == false){
+  if(isBuilding == false){
     
   }
 });
